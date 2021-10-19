@@ -1,1 +1,1 @@
-all extensions made by me are placed here..
+Extensions for my projects
