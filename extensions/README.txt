@@ -1,1 +1,2 @@
-Extensions for my projects
+packages (or pkg) for my projects
+(mainly Whirledit)
