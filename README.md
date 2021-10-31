@@ -1,2 +1,2 @@
 # whmsft.github.io
-usable site (for me)
+usable site (for me & you too)
