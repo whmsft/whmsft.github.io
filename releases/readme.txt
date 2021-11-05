@@ -1,1 +1,1 @@
-This directory contains the main releases for all of my projects
+This directory contains the main releases (as zip) for all of my projects
