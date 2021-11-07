@@ -6,3 +6,6 @@ usable site (for me & you too)
 ## about me
 
 ### i am a 13yrs old pythonista
+
+
+I am dreaming of a bright future as a data scientist at Microsoft
