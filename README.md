@@ -9,3 +9,5 @@ usable site (for me & you too)
 
 
 I am dreaming of a bright future as a data scientist at Microsoft
+
+And make a site accessible by aka.ms
