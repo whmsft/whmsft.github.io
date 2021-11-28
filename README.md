@@ -1,5 +1,4 @@
 # whmsft.github.io
-A usable site for a usable human
 
 <hr>
 
