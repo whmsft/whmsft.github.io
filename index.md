@@ -24,5 +24,3 @@
 | * Almost done but, not 100% exactly                |
 |----------------------------------------------------|
  ```
-
-And at present I am busy due to my annual exams
