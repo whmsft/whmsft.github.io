@@ -1,2 +1,2 @@
-## a site
+## a useless site
 For me
