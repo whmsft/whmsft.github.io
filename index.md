@@ -2,8 +2,6 @@
 
 ### I am an ordinary "not-so-experienced" developer
 
- I currently know many languages but.. I ace at Python and Wren!
- 
  ```
 |----------------------------------------------------|
 |         PROGRAMMING LANGUAGES THAT I KNOW          |
