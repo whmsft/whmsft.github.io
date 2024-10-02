@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whmsft - Microsoft Fluent Design</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('wallpaper.png') no-repeat center center fixed;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            user-select: none; /* Prevent text selection */
+            color: #f3f3f3; /* Soft white for better contrast */
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1); /* Transparent white */
+            backdrop-filter: blur(30px) saturate(180%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 8px 50px rgba(0, 0, 0, 0.3); /* Deeper shadow for elevation */
+            max-width: 600px;
+            width: 90%;
+            opacity: 0; /* Start hidden for animation */
+            transform: translateY(-30px); /* Start above */
+            animation: slideIn 1s forwards ease-out; /* Slower animation */
+            position: relative;
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 60px rgba(0, 0, 0, 0.4); /* More elevation on hover */
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            color: #ffffff; /* Bright white */
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85); /* Softer white for better readability */
+            margin: 20px 0;
+        }
+
+        em {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6); /* Lighter tone for quotes */
+        }
+
+        /* Ripple effect */
+        .highlight {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        /* Bounce and ripple effect */
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .card:active {
+            transform: scale(1.01); /* Smaller bounce for subtle elevation */
+            box-shadow: 0 8px 50px rgba(0, 0, 0, 0.4); /* Retain elevation during bounce */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card" id="card">
+        <h1>whmsft</h1>
+        <p>Thanks for paying me a visit, although I'm not that unique.</p>
+        <p>
+            <em>"I damn like to call myself special, and believe I'm supposed to have all honours. This makes me feel bad for whenever I am not in the spotlight. Now, it seems to me that... I am not the 'chosen one', far from it. I wasn't supposed to change the world. There are a hell a lot of people better than me in any field.<br> Thinking always overwhelms me. It never fails to waste my time. It's a vicious cycle. Once you're into it, there's no way out. I once thought to force myself, and I do try, to feel positive, and look at all good aspects of life... But it's just harder to neglect all negativity."<br> - whmsft </em>
+        </p>
+    </div>
+    <div class="highlight" id="highlight"></div>
+
+    <script>
+        const highlight = document.getElementById('highlight');
+        const card = document.getElementById('card');
+
+        // Ripple effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            highlight.style.left = `${e.pageX}px`;
+            highlight.style.top = `${e.pageY}px`;
+            highlight.style.transform = 'scale(1)';
+        });
+
+        // Hide highlight on mouse leave
+        document.addEventListener('mouseleave', () => {
+            highlight.style.transform = 'scale(0)';
+        });
+
+        // Bouncing and ripple effect on card click
+        card.addEventListener('click', (e) => {
+            const rect = card.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.classList.add('highlight');
+            ripple.style.left = `${e.clientX - rect.left}px`;
+            ripple.style.top = `${e.clientY - rect.top}px`;
+            ripple.style.transform = 'scale(0)';
+            ripple.style.position = 'absolute';
+            card.appendChild(ripple);
+
+            // Animate ripple effect
+            ripple.style.animation = 'ripple 0.8s linear'; // Slower ripple animation
+
+            // Remove ripple after animation ends
+            ripple.addEventListener('animationend', () => {
+                ripple.remove();
+            });
+
+            // Bounce effect for card
+            card.style.transform = 'scale(1.01)'; // Slightly smaller bounce
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+            }, 250); // Slower return
+        });
+    </script>
+</body>
+</html>
